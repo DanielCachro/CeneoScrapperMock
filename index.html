@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CeneoScrapper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+
+    <style>
+        .navbar-toggler-icon {
+            background-image: url(./img/menu.svg);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="./img/codesandbox.svg" alt="Logo" width="30" height="28"
+                    class="d-inline-block align-content-center">
+                KoperkowyPies
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./extraction.html">Ekstrakcja opinii</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./productlist.html">Lista produktów</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strona główna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">O autorze</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col mt-4" style="overflow: scroll;">
+                <table class="table table-striped" id="opinions">
+                    <script>
+                        $(document).ready(function () {
+                            $('#opinions').DataTable({
+                                "ajax": { url: "39562616.json", dataSrc: "" },
+                                columns: [
+                                    { data: 'opinion_id', title: 'ID opinii' },
+                                    { data: 'author', title: 'Autor' },
+                                    { data: 'content', title: 'Treść' },
+                                    { data: 'stars', title: 'Gwiazdki' },
+                                    { data: 'recommendation', title: 'Rekomentacja' },
+                                    { data: 'pros', title: 'Lista zalet' },
+                                    { data: 'cons', title: 'Lista wad' },
+                                    { data: 'useful_count', title: 'Przydatna' },
+                                    { data: 'unuseful_count', title: 'Nieptrzydatna' },
+                                    { data: 'purchased', title: 'Potwierdzona zakupem' },
+                                    { data: 'opinion_date', title: 'Data wystawienia' },
+                                    { data: 'purchase_date', title: 'Data zakupu' }
+                                ]
+                            })
+                        });
+                    </script>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+</body>
+
+</html>

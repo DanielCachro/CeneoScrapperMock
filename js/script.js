@@ -1,3 +1,9 @@
+$(document).ready(function () {
+	$('#opinions').DataTable({
+		lengthMenu: [6],
+	})
+})
+
 // $(document).ready(function () {
 // 	$('#productList').DataTable({
 // 		responsive: true,
